@@ -1,0 +1,21 @@
+﻿@model IEnumerable<ReactEvents1.Models.CommentModel>
+
+
+    @Html.React("CommentBox", new
+{
+    initialData = Model,
+    url = Url.Action("Comments"),
+    submitUrl = Url.Action("AddComment"),
+    pollInterval = 2000,
+})
+
+@section Scripts{
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
+
+<script src="@Url.Content("~/js/comments.jsx")"></script>
+@Html.ReactInitJavaScript()
+
+}
+    
